@@ -39,3 +39,5 @@ const houseData = [
     }
   },
 ]
+
+export default houseData
