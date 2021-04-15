@@ -1,5 +1,6 @@
 const houseData = [
   {
+    type: "house",
     city: "Detroit",
     state: "MI",
     price: 172,
@@ -12,6 +13,7 @@ const houseData = [
     }
   },
   {
+    type: "villa",
     city: "Nashville",
     state: "TN",
     price: 229,
@@ -24,6 +26,7 @@ const houseData = [
     }
   },
   {
+    type: "house",
     city: "Nashville",
     state: "TN",
     price: 431,
