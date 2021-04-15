@@ -10,9 +10,9 @@ const SearchBar = () => {
       onChange={ event => setSearchValue(event.target.value)} 
       value={searchValue}
       borderTop="none"
-      borderRight="none"
-      borderLeft="none"
+      borderX="none"
       borderRadius="0"
+      padding
     />
   )
 }

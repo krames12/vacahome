@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import { Heading } from "@chakra-ui/react"
+import { Container, Heading } from "@chakra-ui/react"
 
 import SearchBar from "../components/SearchBar"
+import FilterBar from "../components/FilterBar"
 
 export default function Home() {
   return (
@@ -10,8 +11,11 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Heading>Welcome to VacaHome</Heading>
-      <SearchBar />
+      <Container>
+        <Heading paddingY="5">Welcome to VacaHome</Heading>
+        <SearchBar />
+        <FilterBar />
+      </Container>
     </>
   )
 }
