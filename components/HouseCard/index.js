@@ -1,4 +1,5 @@
 import { Box, Flex, Image, Spacer, Text } from "@chakra-ui/react"
+import { IconContext } from "react-icons"
 import { RiDoorOpenLine, RiLayoutColumnLine } from "react-icons/ri"
 import { FaShower } from "react-icons/fa"
 
@@ -21,33 +22,26 @@ const HouseCard = listing => {
         alt="random placeholder image"
         marginY="2"
       />
-      <Flex>
-        <Text 
-          paddingRight="2" 
-          display="flex" 
-          alignItems="center"
-        >
-          <RiDoorOpenLine />Bed: {bedrooms}
-        </Text>
-        <Text 
-          paddingRight="2" 
-          display="flex" 
-          alignItems="center"
-        >
-          <FaShower />Bath: {bathrooms}
-        </Text>
-        <Text 
-          paddingRight="2" 
-          display="flex" 
-          alignItems="center"
-        >
-          <RiLayoutColumnLine />Sq Ft: {squareFt}
-        </Text>
-        <Spacer />
-        <Text paddingX="2">
-          ${price} /per day
-        </Text>
-      </Flex>
+      <IconContext.Provider value={{color: "rgb(49, 151, 149)"}}>
+        <Flex alignItems="center">
+          <RiDoorOpenLine />
+          <Text color="gray.600" paddingLeft="2" paddingRight="4" display="flex" alignItems="center">
+            {bedrooms}
+          </Text>
+          <FaShower />
+          <Text color="gray.600" paddingLeft="2" paddingRight="4" display="flex" alignItems="center">
+            {bathrooms}
+          </Text>
+          <RiLayoutColumnLine />
+          <Text color="gray.600" paddingLeft="2" paddingRight="4" display="flex" alignItems="center">
+            {squareFt} /sq ft
+          </Text>
+          <Spacer />
+          <Text paddingX="2">
+            ${price} /per day
+          </Text>
+        </Flex>
+      </IconContext.Provider>
       <Text paddingY="1">{city}, {state}</Text>
     </Box>
   )
