@@ -11,18 +11,29 @@ import ListingsGrid from "../components/ListingsGrid"
 export default function Home() {
   const [listings, setListings] = useState(listingData)
   const [searchTerms, setSearchTerms] = useState("")
+  const [filters, setFilters] = useState([])
   const [activeFilters, setActiveFilters] = useState([])
 
+  const updateActiveFilters = tag => {
+    setActiveFilters(activeFilters.includes(tag) 
+      ? activeFilters.filter( filter => tag !== filter) 
+      : [...activeFilters, tag])
+  }
+
   useEffect(() => {
-    const filteredListings = listingData?.filter(({city, state}) => {
+    setListings(listingData?.filter(({city, state}) => {
       return city?.includes(searchTerms) || state?.includes(searchTerms)
+    }))
+  }, [searchTerms, setSearchTerms])
+
+  useEffect(() => {
+    const listingTypes = []
+    listings.forEach(({type}) => {
+      !listingTypes.includes(type) ? listingTypes.push(type) : null;
     })
 
-    console.log("Filtered Listings", filteredListings);
-
-    setListings(filteredListings)
-    console.log(listings)
-  }, [searchTerms, setSearchTerms])
+    setFilters(listingTypes)
+  }, [])
 
   return (
     <>
@@ -33,7 +44,7 @@ export default function Home() {
       <Container>
         <Heading paddingY="5">Welcome to VacaHome</Heading>
         <SearchBar searchTerms={searchTerms} handleSearchUpdate={setSearchTerms} />
-        <FilterBar activeFilters={activeFilters} setActiveFilters={setActiveFilters} />
+        <FilterBar activeFilters={activeFilters} filters={filters} updateActiveFilters={updateActiveFilters}/>
         <ListingsGrid listings={listings} />
       </Container>
     </>

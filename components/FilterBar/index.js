@@ -1,32 +1,37 @@
-import { Button, Flex, Spacer } from "@chakra-ui/react"
-import { BsFilter } from "react-icons/bs";
+import { useEffect } from "react"
+import { Box, Button, Checkbox, Flex, Spacer } from "@chakra-ui/react"
+import { BsFilter } from "react-icons/bs"
 
-const FilterBar = () => (
-  <Flex paddingY="5">
-    <Button 
-      colorScheme="teal" 
-      variant="solid" 
-      marginRight="3"
-    >
-      House
-    </Button>
-    <Button 
-      color="teal.500" 
-      borderColor="teal.500" 
-      variant="outline" marginRight="3"
-    >
-      Villa
-    </Button>
-    <Spacer />
-    <Button 
-      borderColor="teal.500" 
-      color="teal.500" 
-      padding="0"
-      variant="outline"
-    >
-      <BsFilter />
-    </Button>
-  </Flex>
-)
+const FilterBar = ({activeFilters, filters, updateActiveFilters}) => {
+  // Use this to update the button variants.
+  // useEffect(() => {
+    
+  // }, [filters, updateActiveFilters])
+
+  return (
+    <Flex paddingY="5">
+      { filters.map(filter => (
+        <Button 
+          colorScheme="teal" 
+          variant={activeFilters?.includes(filter) ? "solid" : "outline"} 
+          marginRight="3"
+          value={filter}
+          onClick={ () => updateActiveFilters(filter)}
+        >
+          {`${filter[0].toUpperCase()}${filter.slice(1)}`}
+        </Button>
+      ))}
+      <Spacer />
+      <Button 
+        borderColor="teal.500" 
+        color="teal.500" 
+        padding="0"
+        variant="outline"
+      >
+        <BsFilter />
+      </Button>
+    </Flex>
+  )
+}
 
 export default FilterBar
