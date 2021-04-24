@@ -1,7 +1,8 @@
-import { Box, Button } from "@chakra-ui/react"
+import { Button, Flex, Spacer } from "@chakra-ui/react"
+import { BsFilter } from "react-icons/bs";
 
 const FilterBar = () => (
-  <Box paddingY="5">
+  <Flex paddingY="5">
     <Button 
       colorScheme="teal" 
       variant="solid" 
@@ -16,7 +17,16 @@ const FilterBar = () => (
     >
       Villa
     </Button>
-  </Box>
+    <Spacer />
+    <Button 
+      borderColor="teal.500" 
+      color="teal.500" 
+      padding="0"
+      variant="outline"
+    >
+      <BsFilter />
+    </Button>
+  </Flex>
 )
 
 export default FilterBar
