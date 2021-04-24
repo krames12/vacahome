@@ -1,4 +1,4 @@
-import { Container, Text } from "@chakra-ui/react"
+import { Container } from "@chakra-ui/react"
 
 import HouseCard from "../HouseCard"
 
