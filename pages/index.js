@@ -21,10 +21,14 @@ export default function Home() {
   }
 
   useEffect(() => {
-    setListings(listingData?.filter(({city, state}) => {
-      return city?.includes(searchTerms) || state?.includes(searchTerms)
+    setListings(listingData?.filter(({city, state, type}) => {
+      const isMatchingSearch = city?.toLowerCase()?.includes(searchTerms.toLowerCase()) 
+        || state?.toLowerCase()?.includes(searchTerms.toLowerCase()) 
+      const isMatchingFilters = activeFilters.length === 0 ? true : activeFilters.includes(type)
+
+      return isMatchingSearch && isMatchingFilters
     }))
-  }, [searchTerms, setSearchTerms])
+  }, [activeFilters, searchTerms, setSearchTerms])
 
   useEffect(() => {
     const listingTypes = []
