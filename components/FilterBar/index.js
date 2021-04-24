@@ -10,8 +10,9 @@ const FilterBar = ({activeFilters, filters, updateActiveFilters}) => {
 
   return (
     <Flex paddingY="5">
-      { filters.map(filter => (
+      { filters.map((filter, index) => (
         <Button 
+          key={`filter-button-${index}`}
           colorScheme="teal" 
           variant={activeFilters?.includes(filter) ? "solid" : "outline"} 
           marginRight="3"
