@@ -8,7 +8,7 @@ const ListingsGrid = ({listings}) => {
 
   return (
     <Container padding="1">
-      { listings.map( listing => (
+      { currentListings.map( listing => (
         <HouseCard {...listing} />
       ) )}
     </Container>
