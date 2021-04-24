@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { Container, Heading } from "@chakra-ui/react"
+import { ListingsWrapper } from "../src/context/ListingsContext"
 
 import listingData from "../data/houseData"
 
