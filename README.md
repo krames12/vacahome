@@ -1,3 +1,6 @@
+## Inspiration
+Dribbble Mockup: https://dribbble.com/shots/15476602-Rental-Housing-And-Villa
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
